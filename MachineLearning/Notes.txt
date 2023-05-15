@@ -1,0 +1,70 @@
+Machine learning (ML) is a method of data analysis that automates analytical model building.
+ It is a branch of artificial intelligence based on the idea that systems can learn from data, 
+identify patterns and make decisions with minimal human intervention.
+
+Python is one of the most popular languages for machine learning due to its simplicity and the
+wide range of machine learning libraries available. Below is an example of a simple linear regression 
+model built using the Scikit-learn library, which is a powerful and commonly used library for machine 
+learning in Python.
+
+Linear Regression is a simple machine learning model where the response y is modelled by a linear 
+combination of the predictors in X.
+
+Here is a simple demonstration:
+
+
+# Import necessary libraries
+
+from sklearn.model_selection import train_test_split 
+from sklearn.linear_model import LinearRegression
+from sklearn import metrics
+import pandas as pd
+
+# Load dataset
+url = "http://bit.ly/w-data"
+data = pd.read_csv(url)
+print("Data imported successfully")
+
+# Explore the data
+data.head()
+
+# Prepare the data
+X = data.iloc[:, :-1].values  
+y = data.iloc[:, 1].values  
+
+# Split the data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0) 
+
+# Train the algorithm
+regressor = LinearRegression()  
+regressor.fit(X_train, y_train) 
+
+# Make predictions using the testing set
+y_pred = regressor.predict(X_test)
+
+# Evaluate the model
+print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_pred))  
+print('Mean Squared Error:', metrics.mean_squared_error(y_test, y_pred))  
+print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
+In the code above:
+
+We first import the necessary libraries.
+We load a dataset from a URL.
+We split the dataset into features (X) and the target variable (y).
+We further split the data into training and testing sets.
+We create a Linear Regression model and fit it to our training data.
+We make predictions using our trained model on the testing data.
+Finally, we evaluate our model using various metrics like Mean Absolute Error, Mean Squared Error, 
+and Root Mean Squared Error.
+This is a very basic example of machine learning in Python, but it should give you a good starting point. 
+As you get more comfortable with the basics, you can start to explore more complex models and techniques, 
+such as decision trees, random forests, support vector machines, and neural networks.
+
+If you're preparing for work at a large tech company, you will also need to familiarize yourself with more 
+advanced topics, such as deep learning, reinforcement learning, natural language processing, and computer vision. 
+These topics often require a strong understanding of the fundamentals of machine learning, so it's important to 
+start with the basics and gradually work your way up.
+
+Furthermore, practical skills in data handling, manipulation, visualization, and analysis using libraries such
+as Pandas, Numpy, Matplotlib, and Seaborn are very important. It would also be advantageous to have knowledge 
+of cloud platforms like Google Cloud, AWS, and Azure, which are commonly used for large-scale machine learning applications.
